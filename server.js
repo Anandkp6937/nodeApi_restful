@@ -1,10 +1,13 @@
 const http=require('node:http');
 const PORT=process.env.PORT || 8008;
-const {getAlldata,invalidRequest,individualIcecream,bodyParserCustom,addIcecreamToDb,modifyTheData,customParams,removeIcecream}=require('./controller/controller');
+const {getAlldata,invalidRequest,individualIcecream,bodyParserCustom,addIcecreamToDb,modifyTheData,customParams,removeIcecream,getHomeRoute}=require('./controller/controller');
 
 const server=http.createServer(async(req,res)=>{
     if(req.url==='/api/icecreams' && req.method=='GET'){
         getAlldata(req,res);
+    }
+    else if(req.url==='/' && req.method==="GET"){
+        getHomeRoute(req,res)
     }
     else if (req.url.match(/\/api\/icecream\/([0-9]+)/) && req.method=='GET'){
         let id=req.url.split('/')[3];

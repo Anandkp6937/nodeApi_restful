@@ -1,4 +1,5 @@
 const {pool}=require('../model/database');
+const fs=require('node:fs');
 //to get all data
 function getAlldata(req,res){
     res.writeHead(200,{'Content-Type':'application/json'});
@@ -94,6 +95,13 @@ function addIcecreamToDb(req,res,info){
             res.end(JSON.stringify({message:"Deleted item from database sucessfully"}));
         })
     }
+    //home route data
+    function getHomeRoute(req,res)
+    {
+    res.writeHead(200,{'Content-Type':'text/html'});
+     const readStream = fs.createReadStream(`${__dirname}/index.html`, 'utf-8');
+    readStream.pipe(res);
+    }
 module.exports={
     getAlldata,
     invalidRequest,
@@ -102,5 +110,6 @@ module.exports={
     addIcecreamToDb,
     modifyTheData,
     customParams,
-    removeIcecream
+    removeIcecream,
+    getHomeRoute
 }
