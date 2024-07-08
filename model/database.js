@@ -5,6 +5,9 @@ const pool=new Pool({
     database:process.env.database, 
     password:process.env.password ,
     port:5432,
+    ssl: {
+      rejectUnauthorized: false
+    }
 });
 pool.connect((err)=>{
     if(err){
