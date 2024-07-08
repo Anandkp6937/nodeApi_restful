@@ -1,6 +1,6 @@
 const {Pool}=require('pg');
 const pool=new Pool({
-    user:data_icecream_user,
+    user:process.env.user,
     host:process.env.host ,
     database:process.env.database, 
     password:process.env.password ,
