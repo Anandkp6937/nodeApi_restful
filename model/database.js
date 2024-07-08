@@ -1,9 +1,9 @@
 const {Pool}=require('pg');
 const pool=new Pool({
-    user:'postgres',
-    host:'localhost',
-    database:'icecream',
-    password:'anand1010',
+    user:process.env.user || 'postgres',
+    host:process.env.host || 'localhost',
+    database:process.env.database || 'icecream',
+    password:process.env.password ||'anand1010',
     port:5432,
 });
 pool.connect((err)=>{
