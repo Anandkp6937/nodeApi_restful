@@ -1,9 +1,9 @@
 const {Pool}=require('pg');
 const pool=new Pool({
-    user:'data_icecream_user',
-    host:'a.oregon-postgres.render.com' ,
-    database:'data_icecream', 
-    password:'dcbjcEIRAHbg8FZ996ryJH2usvsZXNV3' ,
+    user:data_icecream_user,
+    host:process.env.host ,
+    database:process.env.database, 
+    password:process.env.password ,
     port:5432,
     ssl: {
       rejectUnauthorized: false
