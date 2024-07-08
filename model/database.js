@@ -8,6 +8,7 @@ const pool=new Pool({
 });
 pool.connect((err)=>{
     if(err){
+      console.log(err);
      throw err
     }
     else{
